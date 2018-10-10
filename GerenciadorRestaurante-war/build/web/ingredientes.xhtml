@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form id="formIngrediente">
+            <h:panelGrid id="gridInsersaoIngrediente" columns="2">
+
+                <h:outputText id="outputNomeIngrediente" value="Ingrediente:"/>
+                <h:inputText id="nomeIngrediente" value="#{ingredienteMBean.ingrediente.nome}"/>
+
+                <h:outputText id="outputIdIngrediente" value="Id:"/>
+                <h:inputText id="idIngrediente" value="#{ingredienteMBean.ingrediente.id}"/>
+
+                <h:outputText id="outputPesoIngrediente" value="Peso:"/>
+                <h:inputText id="pesoIngrediente" value="#{ingredienteMBean.ingrediente.peso}"/>
+
+                <h:outputText id="outputCustoIngrediente" value="Custo:"/>
+                <h:inputText id="custoIngrediente" value="#{ingredienteMBean.ingrediente.custo}"/>
+
+            </h:panelGrid>
+            <h:commandButton id="salvarIngrediente" value="BOTAO" action="#{ingredienteMBean.salvarIngrediente}"/>
+        </h:form>
+
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Lista de Ingredientes"/></h1>
+                <p:dataTable var="ingrediente" value="#{ingredienteMBean.listaIngrediente}">
+                    <p:column headerText="INGREDIENTE">
+                        <h:outputText value="#{ingrediente.nome}" />
+                    </p:column>
+                    <p:column headerText="CUSTO">
+                        <h:outputText value="#{ingrediente.custo}" /> 
+                    </p:column>
+                    <p:column headerText="PESO">
+                        <h:outputText value="#{ingrediente.peso}" />
+                    </p:column>
+                    <p:column headerText="ID">
+                        <h:outputText value="#{ingrediente.id}" />
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
